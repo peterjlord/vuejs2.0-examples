@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Events</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		crossorigin="anonymous">
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div class="container" id="app">
+		<div class="row">
+		<button v-on:click="increment(3, $event)">Click Me to Count</button>
+		<button v-on:click="counter++">Click Me to add One</button>
+		<button v-on:click="counter--">Click Me to minus One</button>
+		<p>{{ counter * 2 > 10 ? 'Greater than 10' : counter }}</p>
+		<p class="mouseCapture" v-on:mouseMove="updatePosition">
+		Position X, Y {{x}} / {{y}}
+			<!-- Stop Event Propagration -->
+			<span v-on:mousemove.stop>DEAD POSITION</span>
+		</p>
+		<input type="text" v-on:keyup.enter.space="aMessage">
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				counter:0,
+				x:0,
+				y:0
+			},
+			methods:{
+				increment: function(step, event) {
+					this.counter += step;
+				},
+				updatePosition: function(event) {
+					this.x = event.clientX;
+					this.y = event.clientY;
+				},
+				aMessage: function() {
+					alert("Hello World");
+
+				}
+			}
+		})
+	</script>
+	<style>
+	.container {
+		margin:30px;
+	}
+	.mouseCapture {
+		height:300px;
+		background:#ccc;
+	}
+	</style>
+</body>
+</html>
