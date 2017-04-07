@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Shortcuts</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div class="container" id="app">
+		<div class="row">
+		<button @click="changeLink">Change to a link</button>
+		<!--<a v-bind:href="link">Link</a>-->
+		<a :href="link">Link</a>
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				link : 'http://peterjlord.co.uk'
+			},
+			methods: {
+				changeLink: function() {
+					this.link= 'http://reddit.com';
+				}
+			}
+		})
+	</script>
+	<style>
+	.container {
+		margin:30px;
+	}
+	</style>
+</body>
+</html>
