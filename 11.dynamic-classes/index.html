@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Class Objects</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div class="container" id="app">
+		<div class="demo" :style="{backgroundColor: color}"></div>
+		<div class="demo" :style="myStyle"></div>
+		<div class="demo"></div>
+		<hr>
+		<input type="text" v-model="color">
+		<input type="text" v-model="width">
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				color: 'gray',
+				width: 100
+			},
+			computed : {
+				myStyle: function() {
+					return {
+						backgroundColor: this.color,
+						width: this.width + 'px'
+					}
+				}
+			}
+		});
+	</script>
+	<style>
+	.container {
+		margin:30px;
+	}
+	.demo {
+		width:100px;
+		height:100px;
+		background-color:gray;
+		display:inline-block;
+		margin:10px;
+	}
+	.red {
+		background-color:red;
+	}
+	.blue {
+		background-color:blue;
+	}
+	.green {
+		background-color:green;
+	}
+	</style>
+</body>
+</html>
