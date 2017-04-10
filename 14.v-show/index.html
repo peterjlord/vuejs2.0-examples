@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Conditional Rendering</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<div id="app">
+	<p v-if="show">You can see me!</p>
+	<p v-else>Now you see me!</p>
+	<p v-show="show">Do you also see me?</p>
+	<template v-if="show">
+		<h1>Show Me</h1>
+		<p>Inside a template tag</p>
+	</template>
+	<button @click="show=!show">Switch</button>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
